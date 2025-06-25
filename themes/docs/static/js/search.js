@@ -3,6 +3,7 @@ const searchInput = document.getElementById('top_search');
 const searchResults = document.getElementById('searchResults');
 const searchFor = document.querySelector('.searchQuery');
 const resultsCount = document.querySelector('.resultsCount span');
+const searchUrlPrefix = document.querySelector('meta[name="search-url-prefix"]')?.content || '';
 
 const buildBreadCrumbs = breadCrumbs => {
     let html = '';
@@ -14,7 +15,7 @@ const buildBreadCrumbs = breadCrumbs => {
         }
 
         html += `<li itemProp="itemListElement" itemScope="" itemType="http://schema.org/ListItem">
-                     <a itemID="examples-tutorials.html" itemProp="item" itemScope="" itemType="http://schema.org/Thing" href="${bc.url}"> 
+                     <a itemID="examples-tutorials.html" itemProp="item" itemScope="" itemType="http://schema.org/Thing" href="${searchUrlPrefix}${bc.url}"> 
                          <span itemProp="name">${bc.title}</span> 
                      </a>
                  </li>`;
@@ -31,7 +32,7 @@ const displayResults = (results) => {
                          <div id="breadcrumbs">
                              <ul itemscope="" itemtype="http://schema.org/BreadcrumbList">${buildBreadCrumbs(result.breadCrumbs)}</ul>
                          </div>
-                         <a href="${result.uri}">${result.title}</a>
+                         <a href="${searchUrlPrefix}${result.uri}">${result.title}</a>
                          <div class="search-description">${result.content}</div>
                      </li>`;
         }

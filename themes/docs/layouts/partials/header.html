@@ -4,6 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="search-base" content="{{ .Site.Params.searchBaseUrl }}">
+{{ if .Site.Params.searchUrlPrefix }}
+<meta name="search-url-prefix" content="{{ .Site.Params.searchUrlPrefix }}">
+{{ end }}
 
 <title>{{ if isset .Params "preview_title" }}{{ index .Params "preview_title" }}{{ else }}{{ .Title }}{{ end }} - {{ .Site.Title }}</title>
 
