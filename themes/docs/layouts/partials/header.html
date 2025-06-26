@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" {{ with .Site.LanguageCode }} lang="{{ . }}"{{ end }}>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="search-base" content="{{ .Site.Params.searchBaseUrl }}">
+{{ if .Site.Params.searchUrlPrefix }}
+<meta name="search-url-prefix" content="{{ .Site.Params.searchUrlPrefix }}">
+{{ end }}
+
+<title>{{ if isset .Params "preview_title" }}{{ index .Params "preview_title" }}{{ else }}{{ .Title }}{{ end }} - {{ .Site.Title }}</title>
+
+<link rel="stylesheet" href="{{ "css/style.min.css" | relURL }}"/>
+<link rel="icon" href="/favicon.svg">
+
+<meta prefix="og: http://ogp.me/ns#" property="og:type" content="website" />
+<meta prefix="og: http://ogp.me/ns#" property="og:title" content="{{ if isset .Params "preview_title" }}{{ index .Params "preview_title" }}{{ else }}{{ .Title }}{{ end }}" />
+<meta prefix="og: http://ogp.me/ns#" property="og:description" content="{{ if isset .Params "preview_description" }}{{ index .Params "preview_description" }}{{ end }}" />
+<meta prefix="og: http://ogp.me/ns#" property="og:image" content="{{ if isset .Params "preview_image_url" }}{{ index .Params "preview_image_url" | relURL }}{{ else }}{{ "default_social_preview.png" | relURL }}{{ end }}" />
+<meta prefix="og: http://ogp.me/ns#" property="og:url" content="{{ .Site.Params.Domain }}" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="{{ .Site.Params.Domain }}" />
+<meta name="twitter:title" content="{{ if isset .Params "preview_title" }}{{ index .Params "preview_title" }}{{ else }}{{ .Title }}{{ end }}" />
+<meta name="twitter:description" content="{{ if isset .Params "preview_description" }}{{ index .Params "preview_description" }}{{ end }}" />
+<meta name="twitter:image" content="{{ if isset .Params "preview_image_url" }}{{ index .Params "preview_image_url" | relURL }}{{ else }}{{ "default_social_preview.png" | relURL }}{{ end }}" />
+<style>
+    :root {
+        --primary-color: {{ .Site.Params.Theme.Colors.primary }};
+        --link-color: {{ .Site.Params.Theme.Colors.link }};
+        --footer-color: {{ .Site.Params.Theme.Colors.footer }};
+        --secondary-color: {{ .Site.Params.Theme.Colors.secondary }};
+    }
+</style>
+</head>
+<body>
+{{ partial "nav" . }}
