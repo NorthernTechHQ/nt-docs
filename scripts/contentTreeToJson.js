@@ -45,7 +45,8 @@ module.exports = {
         }
 
         if (titleRegex.test(content)) {
-            result.title = content.match(titleRegex)[1].trim();
+            // remove surrounding single or doublequotes that might be used in the frontmatter
+            result.title = content.match(titleRegex)[1].trim().replace(/^["']|["']$/g, '');
         }
 
         if (sortingRegex.test(content)) {
