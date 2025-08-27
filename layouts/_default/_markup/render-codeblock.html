@@ -19,6 +19,6 @@
 </div>
 {{ else }}
 <div class="highlight">
-    {{ highlight .Inner $lang }}
+    {{ highlight (replaceRE `\A.*\n` "" .Inner) $lang }}
 </div>
 {{ end }}
