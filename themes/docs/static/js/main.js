@@ -79,11 +79,12 @@ overlay.onclick = function () {
 }
 
 const topMenuVersions = document.querySelector('.top_menu-versions');
-topMenuVersions.onclick = function (event) {
-    topMenuVersions.classList.toggle('opened');
+if (topMenuVersions) {
+    topMenuVersions.onclick = function (event) {
+        topMenuVersions.classList.toggle('opened');
+    }
+    document.querySelector('.top_menu-versions-title > span > span').innerText = document.querySelector('.top_menu-versions-list a[selected="selected"], .top_menu-versions-list a').innerText;
 }
-
-document.querySelector('.top_menu-versions-title > span > span').innerText = document.querySelector('.top_menu-versions-list a[selected="selected"], .top_menu-versions-list a').innerText;
 
 const mainMenuCopy = document.querySelector('.left-menu ul.mainMenu').cloneNode(true);
 const clickedMenuHistory = [{ href: '/', name: 'Home' }];
