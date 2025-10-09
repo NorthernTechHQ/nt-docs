@@ -7,13 +7,15 @@
                 <h1 id="top">
                     {{.Title}}
                 </h1>
-                <div class="suggestChanges">
-                    <a class="btn btn-transparent btn-bordered"
-                       href='{{ .Site.Params.repositoryUrl}}/edit/{{ .Site.Params.branch}}{{ .Path }}.markdown'
-                       target="_blank">
-                        <i class="bi bi-github"></i> Suggest changes
-                    </a>
-                </div>
+                {{ if .File }}
+                    <div class="suggestChanges">
+                        <a class="btn btn-transparent btn-bordered"
+                        href='{{ .Site.Params.repositoryUrl}}/edit/{{ .Site.Params.branch}}/content/{{ .File.Path }}'
+                        target="_blank">
+                            <i class="bi bi-github"></i> Suggest changes
+                        </a>
+                    </div>
+                {{ end }}
             </div>
 
             {{ if gt (.TableOfContents | len) 35 }}
