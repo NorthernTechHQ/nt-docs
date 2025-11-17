@@ -8,6 +8,8 @@
 <meta name="search-url-prefix" content="{{ .Site.Params.searchUrlPrefix }}">
 {{ end }}
 
+{{ partial "metaTags" . }}
+
 <title>{{ if isset .Params "preview_title" }}{{ index .Params "preview_title" }}{{ else }}{{ .Title }}{{ end }} - {{ .Site.Title }}</title>
 
 <link rel="stylesheet" href="{{ "css/style.min.css" | relURL }}"/>
