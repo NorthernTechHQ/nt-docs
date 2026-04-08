@@ -14,6 +14,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Copy sample content
+      run: |
+        cp config.toml.example config.toml
+        cp -r samples/* ./
     - name: Build the Docker image
-      # run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-      run: echo TODO ENT-13823 # docker build --tag nt-docs -f Containerfile .
+      run: docker build --tag nt-docs -f Containerfile .

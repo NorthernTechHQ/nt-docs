@@ -3,11 +3,11 @@ ARG TARGETPLATFORM
 WORKDIR /docs
 ADD https://github.com/gohugoio/hugo/releases/download/v0.160.0/hugo_0.160.0_Linux-64bit.tar.gz hugo.tar.gz
 RUN echo "2c49f8f153b159ac81ee76ddeb126e913fadf8d5376a9ddc479e8772766dbde3  hugo.tar.gz" | sha256sum -c
-RUN tar -zxvf hugo.tar.gz
+RUN tar -zxvf hugo.tar.gz && mv hugo /usr/local/bin/hugo
 COPY ./ /docs
 RUN npm ci
 RUN npm run build:all
-RUN ./hugo --logLevel info
+RUN hugo --logLevel info
 RUN find public -type f -regex '^.*\.\(svg\|css\|html\|xml\|gif\)$' -size +1k -exec gzip -k '{}' \;
 
 FROM nginx:stable-alpine
