@@ -1,2 +1,7 @@
 /node_modules
 /public
+/content
+/layouts
+/scripts/search/server/node_modules/
+config.toml
+.hugo_build.lock
