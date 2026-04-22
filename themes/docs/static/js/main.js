@@ -360,11 +360,11 @@ document.querySelectorAll('.dropdown-select').forEach(function (item) {
     item.querySelector('span div').textContent = selected_version.textContent;
 });
 
-function selectVersion(value) {
-    if (value.indexOf('archive') == -1 && window.currentVersionLink) {
-        window.location = window.location.href.replace(window.currentVersionLink, value);
+function selectVersion(version, currentVersion = null, replaceVersionInLcocation = false) {
+    if (replaceVersionInLcocation && currentVersion) {
+        window.location = window.location.href.replace(currentVersion, version);
     } else {
-        window.location = value;
+        window.location = version;
     }
 };
 window.selectVersion = selectVersion;
