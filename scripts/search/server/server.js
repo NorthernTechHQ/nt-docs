@@ -93,7 +93,8 @@ const server = http.createServer((req, res) => {
                 if (!document.foundHeaderId && document.headersMap[id].toLocaleLowerCase().indexOf(searchQuery.toLocaleLowerCase()) > -1) {
                     document.foundHeaderId = id;
                     document.isExactMatch = document.headersMap[id].toLocaleLowerCase().trim() == searchQuery.toLocaleLowerCase().trim();
-                    document.uri += `#${id}`;
+                    // 'top' is the internal id for the page title, so don't append in uri
+                    document.uri += id === 'top' ? '' : `#${id}`;
                     document.title = document.headersMap[id];
                 }
             });

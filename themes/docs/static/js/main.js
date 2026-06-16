@@ -231,7 +231,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const anchors = document.querySelectorAll(".article h1, .article h2, .article h3, .article h4");
     anchors.forEach(function (el) {
         let url = new URL(window.location.href);
-        el.insertAdjacentHTML('beforeend', '<a class="anchor" href="' + url.origin + url.pathname + '#' + el.id + '"><i class="bi bi-link-45deg"></i></a>');
+        const hash = el.id ? `#${el.id}` : '';
+        el.insertAdjacentHTML('beforeend', '<a class="anchor" href="' + url.origin + url.pathname + hash + '"><i class="bi bi-link-45deg"></i></a>');
     });
 
     document.querySelectorAll('a.anchor').forEach(function (a) {
