@@ -45,7 +45,10 @@ const contentPath = path.resolve(__dirname + '/../../../content');
 
             if (headersMatches) {
                 for (const match of headersMatches) {
-                    const header = match[1];
+                    const header = match[1]
+                        .replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1') // inline links/images convert to text
+                        .replace(/\[([^\]]*)\]\[[^\]]*\]/g, '$1') // reference links convert to text
+                        .trim();
                     const headerId = header
                         .replace(/\W+/g, '-')
                         .replace(/-$/, '')
