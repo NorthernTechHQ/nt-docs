@@ -1,8 +1,8 @@
 FROM --platform=$BUILDPLATFORM node:alpine AS build
 ARG TARGETPLATFORM
 WORKDIR /docs
-ADD https://github.com/gohugoio/hugo/releases/download/v0.166.0/hugo_0.166.0_Linux-64bit.tar.gz hugo.tar.gz
-RUN echo "45228f5a52eb118b0ca168068f01d7df0447314a24056f1d29667ed9fc368308  hugo.tar.gz" | sha256sum -c
+ADD https://github.com/gohugoio/hugo/releases/download/v0.167.0/hugo_0.167.0_Linux-64bit.tar.gz hugo.tar.gz
+RUN echo "4d84519b9f619e6d4c3fb45a50157abeabeb724f859c60605f44c23def6e1169  hugo.tar.gz" | sha256sum -c
 RUN tar -zxvf hugo.tar.gz && mv hugo /usr/local/bin/hugo
 COPY ./ /docs
 RUN npm ci
