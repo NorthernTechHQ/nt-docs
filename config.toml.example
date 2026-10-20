@@ -11,6 +11,8 @@ branch = "master"
 repositoryUrl = "https://github.com/cfengine/documentation"
 searchBaseUrl = "/api/search"
 domain = "docs.northern.tech"
+# Used as the summary line in llms.txt
+description = "Northern.tech product documentation."
 
 # Number of posts per page
 [pagination]
@@ -34,3 +36,20 @@ wrapperClass = 'hlc'
   secondary = "#f5821f"
   link = "#1d71d3"
   footer = "#052569"
+
+# llms.txt (https://llmstxt.org), see
+# https://github.com/gethugothemes/hugo-modules/tree/main/llms-txt
+[module]
+[[module.imports]]
+path = "github.com/gethugothemes/hugo-modules/llms-txt"
+
+[outputs]
+home = ["HTML", "RSS", "llms", "llmsfull", "md"]
+section = ["HTML", "RSS", "md"]
+page = ["HTML", "md"]
+
+[params.llms]
+generate_llms_txt = true
+generate_llms_full_txt = true
+include = []
+exclude = ["/tags/**"]
