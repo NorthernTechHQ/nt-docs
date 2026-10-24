@@ -174,24 +174,24 @@ ul {
 
 table {
   margin-top: 5rem;
-  line-height: 4.4rem;
   border: none;
   max-width: 100%;
+  // Long cells wrap; a table still too wide (e.g. long code) scrolls instead of breaking the layout.
   display: block;
   overflow-x: auto;
-  white-space: nowrap;
 
   th, td {
-    width: 18rem;
-    padding-left: 1rem;
+    padding: 1.3rem 1rem;
+    vertical-align: top;
+  }
+
+  th {
+    white-space: nowrap;
   }
 
   tr {
-    height: 5rem;
-
     &:nth-child(odd) {
       background: @lightGray;
-      height: 3.7rem;
     }
   }
 
