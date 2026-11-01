@@ -3,8 +3,8 @@ ARG TARGETPLATFORM
 WORKDIR /docs
 # go and git are needed by Hugo to download modules (llms-txt)
 RUN apk add --no-cache go git
-ADD https://github.com/gohugoio/hugo/releases/download/v0.168.0/hugo_0.168.0_Linux-64bit.tar.gz hugo.tar.gz
-RUN echo "fada83ad56bb27ed4cb7dd81590303bdac16140f944ac4e66fc248117e2d5594  hugo.tar.gz" | sha256sum -c
+ADD https://github.com/gohugoio/hugo/releases/download/v0.169.0/hugo_0.169.0_Linux-64bit.tar.gz hugo.tar.gz
+RUN echo "2d2f0bfe357d8cb4cec02f6bb28a3bff34978c8dda44b618029c5eb9d66765a7  hugo.tar.gz" | sha256sum -c
 RUN tar -zxvf hugo.tar.gz && mv hugo /usr/local/bin/hugo
 COPY ./ /docs
 RUN npm ci
