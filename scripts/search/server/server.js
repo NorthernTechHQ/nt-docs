@@ -14,9 +14,8 @@ const fetchIndex = () => {
             id: 'number',
             index: ['title', 'headers', 'content']
         },
-        charset: "latin",
+        encoder: new FlexSearch.Encoder(FlexSearch.Charset.Default, {dedupe: false}),
         tokenize: "full",
-        matcher: "simple",
         cache: true
     });
 

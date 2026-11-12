@@ -40,9 +40,8 @@ const resolveParamsShortcodes = (text, filename) => text.replace(
             id: 'number',
             index: ['content', 'headers', 'title']
         },
-        charset: "latin",
+        encoder: new FlexSearch.Encoder(FlexSearch.Charset.Default, {dedupe: false}),
         tokenize: "full",
-        matcher: "simple",
         cache: true
     })
 
