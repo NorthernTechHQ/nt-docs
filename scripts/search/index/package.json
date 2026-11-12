@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "flexsearch": "^0.7.31",
+    "flexsearch": "^0.8.212",
     "smol-toml": "^1.9.1"
   }
 }
